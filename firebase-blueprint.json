@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "ChatSession": {
+      "title": "Chat Session",
+      "description": "A conversation session between a user and an admin.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "The UID of the user." },
+        "userName": { "type": "string", "description": "The name of the user." },
+        "lastMessage": { "type": "string", "description": "The content of the last message." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "When the session was last updated." },
+        "unreadCount": { "type": "integer", "description": "Number of unread messages for the admin." }
+      },
+      "required": ["userId", "updatedAt"]
+    },
+    "ChatMessage": {
+      "title": "Chat Message",
+      "description": "A single message in a chat session.",
+      "type": "object",
+      "properties": {
+        "text": { "type": "string", "description": "The message text." },
+        "senderId": { "type": "string", "description": "The UID of the sender." },
+        "senderRole": { "type": "string", "enum": ["user", "admin"], "description": "The role of the sender." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the message was sent." }
+      },
+      "required": ["text", "senderId", "senderRole", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/chatSessions/{sessionId}": {
+      "schema": "ChatSession",
+      "description": "Root collection for chat sessions."
+    },
+    "/chatSessions/{sessionId}/messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Subcollection for messages within a session."
+    }
+  }
+}
