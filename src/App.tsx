@@ -1,3 +1,4 @@
+// GITHUB EXPORT TEST: If you can see this comment on GitHub, the export is working perfectly! (Added at 11:39 UTC)
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent, useSpring } from "motion/react";
 import { 
