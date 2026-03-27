@@ -65,7 +65,7 @@ const AppImageShowcase = ({ src, alt }: { src: string, alt: string }) => {
         <img 
           src={src} 
           alt={alt} 
-          className="w-full h-auto drop-shadow-2xl" 
+          className="w-full h-auto drop-shadow-2xl mix-blend-multiply" 
           referrerPolicy="no-referrer"
         />
       </motion.div>
@@ -653,7 +653,7 @@ const BuildCard = ({ title, category, description, icon: Icon }: { title: string
     initial={{ opacity: 0, scale: 0.95 }}
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
-    className="group relative overflow-hidden rounded-[40px] bg-white border border-neutral-100 shadow-sm p-8 hover:shadow-2xl transition-all"
+    className="group relative overflow-hidden rounded-[40px] bg-white border border-neutral-100 shadow-sm p-8 hover:shadow-2xl transition-shadow duration-300"
   >
     <div className="mb-8 h-64">
       <Illustration type="build" />
@@ -673,7 +673,7 @@ const FeatureCard = ({ icon: Icon, title, description }: { icon: any, title: str
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className="p-8 rounded-[32px] bg-white border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 group"
+    className="p-8 rounded-[32px] bg-white border border-neutral-100 shadow-sm hover:shadow-xl transition-shadow duration-300 group"
   >
     <div className="w-14 h-14 insta-gradient rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
       <Icon className="text-white w-7 h-7" />
@@ -712,7 +712,7 @@ const PricingCard = ({ title, price, period, description, features, checkoutUrl,
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`p-10 rounded-[40px] border ${isPopular ? 'bg-neutral-950 text-white border-white/10 shadow-2xl scale-105 z-10' : 'bg-white text-neutral-900 border-neutral-100 shadow-sm'} relative flex flex-col transition-all duration-300`}
+      className={`p-10 rounded-[40px] border ${isPopular ? 'bg-neutral-950 text-white border-white/10 shadow-2xl scale-105 z-10' : 'bg-white text-neutral-900 border-neutral-100 shadow-sm'} relative flex flex-col transition-colors transition-shadow duration-300`}
     >
       {isPopular && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 insta-gradient text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
@@ -994,13 +994,14 @@ const MainAppContent = ({ user }: { user: any }) => {
           className="absolute inset-0 bg-gradient-to-r from-transparent via-insta-pink/10 to-transparent pointer-events-none"
         />
         
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
-          <div className="flex items-center gap-4">
+        <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-2 md:gap-4 relative z-10">
+          <div className="flex items-center gap-2 md:gap-4">
             <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-insta-orange text-white text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-insta-orange/20">
               <Zap className="w-3 h-3 fill-current" />
               Next Bootcamp
             </div>
-            <p className="text-xs md:text-sm font-bold uppercase tracking-widest">
+            <p className="text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-widest">
+              <span className="md:hidden insta-text-gradient mr-1">BOOTCAMP</span>
               Starts April 6th
             </p>
           </div>
@@ -1171,7 +1172,7 @@ const MainAppContent = ({ user }: { user: any }) => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-10 rounded-[40px] bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-all group overflow-hidden relative"
+              className="p-10 rounded-[40px] bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-colors duration-300 group overflow-hidden relative"
             >
               {/* Background Decorative Icon */}
               <div 
@@ -1205,7 +1206,7 @@ const MainAppContent = ({ user }: { user: any }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="p-10 rounded-[40px] bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-all group overflow-hidden relative"
+              className="p-10 rounded-[40px] bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-colors duration-300 group overflow-hidden relative"
             >
               {/* Background Decorative Icon */}
               <div 
@@ -1239,7 +1240,7 @@ const MainAppContent = ({ user }: { user: any }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="p-10 rounded-[40px] bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-all group overflow-hidden relative"
+              className="p-10 rounded-[40px] bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-colors duration-300 group overflow-hidden relative"
             >
               {/* Background Decorative Icon */}
               <div 
@@ -1342,7 +1343,7 @@ const MainAppContent = ({ user }: { user: any }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 rounded-[32px] border border-neutral-100 shadow-sm hover:shadow-xl transition-all group"
+                className="bg-white p-8 rounded-[32px] border border-neutral-100 shadow-sm hover:shadow-xl transition-shadow duration-300 group"
               >
                 <div className="flex items-center justify-between mb-6">
                   <div className={`w-14 h-14 rounded-2xl ${app.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
@@ -1922,7 +1923,7 @@ const MainAppContent = ({ user }: { user: any }) => {
                 <img 
                   src="https://i.postimg.cc/x8RKDxmn/laptopfront.png" 
                   alt="1-on-1 Strategy Call Mockup" 
-                  className="w-full h-auto drop-shadow-2xl"
+                  className="w-full h-auto drop-shadow-2xl mix-blend-multiply"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute -bottom-6 -right-6 p-6 rounded-3xl bg-neutral-900 text-white shadow-2xl max-w-[240px]">
@@ -1967,7 +1968,7 @@ const MainAppContent = ({ user }: { user: any }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-[32px] bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-all group"
+                className="p-8 rounded-[32px] bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-colors duration-300 group"
               >
                 <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:insta-gradient transition-all">
                   <perk.icon className="w-7 h-7 text-white/40 group-hover:text-white transition-colors" />
