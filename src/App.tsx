@@ -872,7 +872,7 @@ const SequenceSection = ({ progress }: { progress: any }) => {
           ].map((item, idx) => (
             <div key={item.id} className="relative py-8 md:py-12">
               {/* Step Marker & Animation Container */}
-              <div className="absolute left-8 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 z-20">
+              <div className="absolute left-0 md:left-1/2 top-8 md:top-1/2 md:-translate-y-1/2 z-20">
                 <div className="relative flex items-center justify-center">
                   <motion.div 
                     initial={{ scale: 0 }}
@@ -904,19 +904,19 @@ const SequenceSection = ({ progress }: { progress: any }) => {
                   initial={{ opacity: 0, x: item.align === 'left' ? -30 : 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className={`${item.align === 'right' ? 'md:col-start-2' : 'md:col-start-1'} pl-20 md:pl-0`}
+                  className={`${item.align === 'right' ? 'md:col-start-2' : 'md:col-start-1'} pl-16 md:pl-0`}
                 >
-                  <div className={`${item.align === 'right' ? 'md:text-left' : 'md:text-right'} ${item.align === 'right' ? 'md:pl-8 lg:pl-24' : 'md:pr-8 lg:pr-24'}`}>
+                  <div className={`text-left ${item.align === 'right' ? 'md:text-left' : 'md:text-right'} ${item.align === 'right' ? 'md:pl-8 lg:pl-24' : 'md:pr-8 lg:pr-24'}`}>
                     <span className="text-sm font-bold uppercase tracking-widest insta-text-gradient mb-2 block">Step {item.id}: {item.step}</span>
                     <h3 className="text-3xl md:text-5xl font-display font-bold mb-4 leading-tight tracking-tight">{item.title}</h3>
-                    <p className="text-lg text-neutral-500 leading-relaxed max-w-md ml-auto mr-0 md:mr-0 md:ml-auto">
+                    <p className={`text-lg text-neutral-500 leading-relaxed max-w-md ${item.align === 'left' ? 'md:ml-auto md:mr-0' : ''}`}>
                       {item.desc}
                     </p>
                   </div>
                 </motion.div>
                 
                 {/* Mobile Animation */}
-                <div className="md:hidden pl-20 mt-4">
+                <div className="md:hidden pl-16 mt-4">
                   <div className={`w-full aspect-video ${item.id === '01' ? 'max-w-[350px] -ml-8' : 'max-w-[200px]'}`}>
                     <Illustration type={item.illustration as any} />
                   </div>
