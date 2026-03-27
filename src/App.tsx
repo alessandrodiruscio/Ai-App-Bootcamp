@@ -1002,8 +1002,7 @@ const MainAppContent = ({ user }: { user: any }) => {
               Next Bootcamp
             </div>
             <p className="text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-widest">
-              <span className="md:hidden text-insta-orange mr-1">BOOTCAMP</span>
-              Starts April 6th
+              Starts <span className="text-insta-orange">April 6th</span>
             </p>
           </div>
           
